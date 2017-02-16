@@ -1,0 +1,245 @@
+//
+   Created by Nutan on 2/13/2017.
+
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title App
+        base(href='/')
+
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/fonts/font-awesome.min.css')
+        link(rel='stylesheet', href='/stylesheets/styles.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700')
+
+        script(src='https://code.jquery.com/jquery-2.2.4.min.js')
+        script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+        script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+
+    body
+        header.navbar-fixed-top
+            .container
+                .row
+                    .header_top
+                        .col-md-4.md4-col-cust
+                            .logo_img
+                                a(href='#home', myscroll="")
+                                    span(style='font-family: monospace;color: white;') SIZZLER
+                        .col-md-8.md8-col-cust
+                            .menu_bar
+                                nav.navbar.navbar-default(role='navigation')
+                                    .navbar-header
+                                        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                                            span.icon-bar
+                                            span.icon-bar
+                                            span.icon-bar
+                                    #navbar.collapse.navbar-collapse
+                                        ul.nav.navbar-nav
+                                            li
+                                                a(href='#home', myscroll='') Home
+                                            li
+                                                a(href='#aboutus', myscroll='') About Us
+                                            li
+                                                a(href='#services', myscroll='') Services
+                                            li
+                                                a(href='#features', myscroll='') Features
+                                            li
+                                                a(href='#contact', myscroll='') Contact
+        section#home.top_banner_bg.secondary-bg
+            .container
+                .row
+                    .col-md-12
+                        .top_banner
+                        .col-md-6
+                            .present
+                                h1 Sizzler App
+                                h3 Delivering food with smile.
+                                .section_btn
+                                    .col-md-9(style='padding-top: 20px')
+                                        a(href='#')
+                                            img(src='img/google-play-badge.svg')
+                        .col-md-1
+                        .col-md-4
+                            .device-mockup.iphone6_plus.portrait.white.wow.slideInRight(data-wow-duration='1.5s')
+                                .device
+                                    .screen
+                                        img.img-responsive(src='img/image-1.png', alt='')
+                                    .button
+        section#aboutus.primary-bg
+            .container
+                .row
+                    .col-md-12
+                        .section_heading
+                            h2  About Us
+                            h4
+                                | Introducing for the first time, in our beloved city Kabul, Sizzler App
+                            h6
+                                | An App meant to gratify your taste buds and cater to the foodie in you, delivering food at your doorstep with smile.
+        section#services.padding_bottom_none.our_service_bg
+            .container
+                .row
+                    .col-md-12
+                        .section_heading.section_heading_2
+                            h2  Our Services
+                            h4
+                                | Sizzler App blends to the needs of our masses and is obliged to satiate all aspects of our consumers demand.
+                        .col-md-6.pull-right
+                            .services_detail
+                                ul
+                                    li
+                                        a(href='#')
+                                            span
+                                                i.fa.fa-language(aria-hidden='true')
+                                            h5 Multiple Language support
+                                        p  Sizzler App is available is Persian, Pashto and English languages.
+                                    li
+                                        a(href='#')
+                                            span
+                                                i.fa.fa-desktop(aria-hidden='true')
+                                            h5 Interactive dashboard
+                                        p  Easy to use and multilingual dashboard; managing orders have never been this easy.
+                                    li
+                                        a(href='#')
+                                            span
+                                                i.fa.fa-money(aria-hidden='true')
+                                            h5 Cash on Delivery
+                                        p  Need not worry about online payments, pay when you receive your order.
+                        .col-md-6
+                            .device-mockup.imac.portrait.white.wow.slideInRight(data-wow-duration='1.5s')
+                                .device
+                                    .screen
+                                        img.img-responsive(src='img/services_img2.png', alt='')
+        section#features.primary-bg
+            .container
+                .row
+                    .col-md-12
+                        .section_heading
+                            h2  AWESOME FEATURES
+                            h4
+                                | Doorstep Delivery
+                        .col-md-6
+                            .features_detail
+                                ul
+                                    li
+                                        i.fa.fa-car(aria-hidden='true')
+                                        h5  Delivery
+                                        |  Your favorite cuisine is just a few clicks away.
+                                        |  Log on to our App, order food from your desired restaurant and get it delivered at your doorstep.
+                        .col-md-4
+                            .device-mockup.iphone6_plus.portrait.black.wow.slideInRight(data-wow-duration='1.5s')
+                                .device
+                                    .screen
+                                        img.img-responsive(src='img/services_img1.png', alt='')
+                        .col-md-2
+        section#contact.contact_bg
+            .container
+                .row
+                    .col-md-12
+                        .section_heading.section_heading_2
+                            h2  Contact Us
+                            h4
+                                | Drop us your details and be notified as soon as we launch.
+                        .col-md-6
+                            .contact_form
+                                form(novalidate='')
+                                    .form-group
+                                        label
+                                            | Full Name :
+                                            span *
+                                        input#exampleInputEmail11.form-control(type='text', ng-model='contactForm.FName')
+                                    .form-group
+                                        label
+                                            | Email Address :
+                                            span *
+                                        input#exampleInputPassword1.form-control(type='text', ng-model='contactForm.email')
+                                    .form-group
+                                        label
+                                            | Message
+                                            span *
+                                        textarea.form-textarea(ng-model='contactForm.message', rows='3')
+                                    .section_sub_btn
+                                        button.btn.btn-default(type='button', (click)='contactus(contactForm)')  Send Message
+                        .col-md-6
+                            .contact_text
+                                ul
+                                    li
+                                        span
+                                            i.fa.fa-home(aria-hidden='true')
+                                        h5  1234 Street Name, City Name, United States
+                                    li
+                                        span
+                                            i.fa.fa-envelope-o(aria-hidden='true')
+                                        h5  contact@domain.com
+                                    li
+                                        span
+                                            i.fa.fa-phone(aria-hidden='true')
+                                        h5  (123) 123-45678
+                                    li
+                                        span
+                                            i.fa.fa-fax(aria-hidden='true')
+                                        h5  (123) 123-45678
+        //section.primary-bg
+        //  .container
+        //    .row
+        //      .col-md-12
+        //        .col-md-4
+        //          .subscribe
+        //            h3  Stay informed with our newsletter
+        //            h6  Subscribe to our email newsletter for useful tips and resources.
+        //            .subscribe_form
+        //              form(ng-submit='subscribe(subEmail)')
+        //                .form-group
+        //                  input#exampleInputEmail1.form-control(type='email', ng-model='subEmail', placeholder='Email Address')
+        //                .section_sub_btn
+        //                  button.btn.btn-default(type='submit')  Subscribe
+        //        .col-md-4
+        //          .device-mockup.imac.portrait.white
+        //            .device
+        //              .screen
+        //                img.img-responsive(src='img/image-1.png', alt='')
+        //              .button
+        //        .col-md-4
+        //          .subscribe
+        //            h3  Download App Now
+        //            h6  Select your device platform and get download started
+        //            .section_btn
+        //              button.btn.btn-default(type='submit')
+        //                i.fa.fa-apple(aria-hidden='true')
+        //                |  App Store
+        //              span
+        //                button.btn.btn-default(type='submit')
+        //                  i.fa.fa-android(aria-hidden='true')
+        //                  |  Play Store
+
+        footer.third-bg
+            .container
+                .row
+                    .col-md-12
+                        .footer_top
+                            h4  Share Us With Your Friends
+                            ul
+                                li
+                                    a(href='http://facebook.com/')
+                                        i.fa.fa-facebook(aria-hidden='true')
+                                li
+                                    a(href='http://twitter.com/')
+                                        i.fa.fa-twitter(aria-hidden='true')
+                                li
+                                    a(href='http://linkedin.com/')
+                                        i.fa.fa-linkedin(aria-hidden='true')
+                                li
+                                    a(href='http://google.com/')
+                                        i.fa.fa-google-plus(aria-hidden='true')
+                                li
+                                    a(href='http://youtu.be/')
+                                        i.fa.fa-youtube-square(aria-hidden='true')
+                                li
+                                    a(href='https://www.instagram.com')
+                                        i.fa.fa-instagram(aria-hidden='true')
+            .footer_bottom.fourth-bg
+                p  2017 &copy; Copyright Sizzler | All rights Reserved.
+                a.backtop(href='#home', myscroll='') ^
+

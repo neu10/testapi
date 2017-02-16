@@ -1,0 +1,21 @@
+{
+  "name": "expressapp",
+  "version": "1.0.0",
+  "description": "Express Quick start",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "expressjs"
+  ],
+  "author": "Nutan Garla",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1",
+    "jade": "^1.11.0",
+    "node-sass": "^4.5.0",
+    "node-sass-middleware": "^0.11.0",
+    "pug": "^2.0.0-beta11"
+  }
+}

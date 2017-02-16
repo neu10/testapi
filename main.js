@@ -34,6 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/ap*i', api);
 
-app.listen(3000);
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
 
 module.exports = app;

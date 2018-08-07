@@ -19,8 +19,16 @@ router.post('/updateCensorData',censorController.updateCensorData);
 
 
 router.get('/getPanelList',panelController.getPanelList);
+
 router.post('/devicedetail',panelController.getDeviceDetails);
 
+router.get('/chartDataForToday',censorController.chartDataForToday);
+
+router.post('/chartData',censorController.getChartDataBetweenDates);
+
+router.post('/chartDataByTime',censorController.getChartDataBetweenTime);
+//
+// router.post('/chartData',censorController.getChartData);
 
 
 module.exports = router;

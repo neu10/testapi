@@ -7,5 +7,5 @@ var apiRoutes = require('./api');
 
 module.exports = (app) => {
     // Load routes
-    app.use('/', apiRoutes);
+    app.use('/api', apiRoutes);
 }

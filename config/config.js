@@ -9,3 +9,7 @@ exports.db = {
         "type":"oracle",
         "connectString":"//incedodb.c7yfdwyxpwb2.us-east-2.rds.amazonaws.com:1521/SOLARDB"
 }
+
+exports.config = {
+        "deviceDataEmitTimeInSeconds" : "20"
+}

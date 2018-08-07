@@ -1,0 +1,80 @@
+<div class="">
+  <div class="">
+      <mat-toolbar class="toolbar">
+          <mat-toolbar-row>
+              <i class="material-icons custom-material-icon cursor-pointer" (click)="drawer.toggle()">
+                  view_headline
+                  </i>
+            <span class="toolbar-span cursor-pointer">SolarPanel</span>
+            <a href="https://www.incedoinc.com/" alt="" target="_blank">
+                <img src=".\src\assets\images\incedo-logo.png" alt="" width="150px">
+            </a>
+            <span class="example-spacer"></span>
+            <mat-icon class="example-icon cursor-pointer">search</mat-icon>
+            <mat-icon class="example-icon cursor-pointer">notifications</mat-icon>
+            <mat-icon class="example-icon cursor-pointer">
+                account_circle
+            </mat-icon>
+            <span class="margin-left-15">Admin</span>
+          </mat-toolbar-row>
+          </mat-toolbar>
+          <!-- mat sidenav -->
+          <mat-drawer-container class="mat-drawer-style" autosize>
+            <mat-drawer #drawer class="sidenav-drawer" mode="side">
+                <mat-accordion>
+                    <mat-expansion-panel class="sidenav-expansion-panel">
+                      <mat-expansion-panel-header routerLink="/devices">
+                          <mat-panel-description>
+                              <mat-icon>device_hub</mat-icon>
+                            </mat-panel-description>
+                        <mat-panel-title>
+                          Devices
+                        </mat-panel-title>
+                        
+                      </mat-expansion-panel-header>
+                      <div class="cursor-pointer">BLR-SLR-1</div>
+                      <div class="cursor-pointer">BLR-SLR-2</div>
+                      <div class="cursor-pointer">BLR-SLR-3</div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel class="sidenav-expansion-panel" (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header routerLink="/chart">
+                        <mat-panel-title>
+                          Chart
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <i class="material-icons">
+                                show_chart
+                                </i>
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel class="sidenav-expansion-panel" (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false" [hideToggle]='true'>
+                      <mat-expansion-panel-header routerLink="/aboutus">
+                        <mat-panel-title>
+                          About Us
+                        </mat-panel-title>  
+                        <mat-panel-description>
+                            <i class="material-icons">
+                                info
+                                </i>
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+              <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+              <button (click)="showFiller = !showFiller" mat-raised-button>
+                Toggle extra text
+              </button> -->
+            </mat-drawer>
+          
+            <!-- <div class="example-sidenav-content">
+              <button type="button" mat-button (click)="drawer.toggle()">
+                Toggle sidenav
+              </button>
+            </div> -->
+            <router-outlet></router-outlet>
+          </mat-drawer-container>
+  </div>
+</div>

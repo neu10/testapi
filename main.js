@@ -1,41 +1,97 @@
-/**
- * Created by Nutan on 2/12/2017.
- */
+const webServer = require('./services/web-server.js');
+const database = require('./services/database.js');
 
-var express = require('express');
-var path = require('path');
+async function startup() {
+    console.log('Starting application');
 
-var index = require('./routes/index');
-var api = require('./routes/api');
+    try {
+        console.log('Initializing database module');
+        await database.initialize();
+    } catch (err) {
+        console.error(err);
 
-var app = express();
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+        process.exit(1); // Non-zero failure code
+    }
 
-app.use(require('node-sass-middleware')({
-    src: path.join(__dirname),
-    dest: path.join(__dirname),
-    indentedSyntax: false,
-    debug: true,
-    sourceMap: true
-}));
+    // *** existing try block in startup here ***
 
-app.use(require('node-sass-middleware')({
-    src: path.join(__dirname, 'public'),
-    dest: path.join(__dirname, 'public'),
-    indentedSyntax: false,
-    debug: true,
-    sourceMap: true
-}));
+    try {
+        console.log('Initializing web server module');
 
-app.use(express.static(path.join(__dirname, 'public')));
+        await webServer.initialize();
+    } catch (err) {
+        console.error(err);
 
-app.use('/', index);
-app.use('/ap*i', api);
+        process.exit(1); // Non-zero failure code
+    }
+}
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+startup();
 
-module.exports = app;
+function close() {
+    return new Promise((resolve, reject) => {
+        httpServer.close((err) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+
+            resolve();
+        });
+    });
+}
+
+module.exports.close = close;
+
+async function shutdown(e) {
+    let err = e;
+
+    console.log('Shutting down');
+
+    try {
+        console.log('Closing web server module');
+
+        await webServer.close();
+    } catch (e) {
+        console.log('Encountered error', e);
+
+        err = err || e;
+    }
+
+    try {
+        console.log('Closing database module');
+
+        await database.close();
+    } catch (err) {
+        console.log('Encountered error', e);
+
+        err = err || e;
+    }
+
+    console.log('Exiting process');
+
+    if (err) {
+        process.exit(1); // Non-zero failure code
+    } else {
+        process.exit(0);
+    }
+}
+
+process.on('SIGTERM', () => {
+    console.log('Received SIGTERM');
+
+    shutdown();
+});
+
+process.on('SIGINT', () => {
+    console.log('Received SIGINT');
+
+    shutdown();
+});
+
+process.on('uncaughtException', err => {
+    console.log('Uncaught exception');
+    console.error(err);
+
+    shutdown(err);
+});

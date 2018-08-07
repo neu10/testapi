@@ -3,14 +3,24 @@
  */
 var express = require('express');
 var router = express.Router();
+var database = require('../services/database');
+var censorController = require('../controllers/censorController');
+var panelController = require('../controllers/panel');
 
-router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
-});
+// router.get('/', async (req, res) => {
+//     const result = await database.simpleExecute('select user, systimestamp from dual');
+//     const user = result.rows[0].USER;
+//     const date = result.rows[0].SYSTIMESTAMP;
+//
+//     res.end(`DB user: ${user}\nDate: ${date}`);
+// });
 
-router.post('/', function(req, res, next) {
-    console.log('received reques from '+req);
-    res.send('Hello from post');
-});
+router.post('/updateCensorData',censorController.updateCensorData);
+
+
+router.get('/getPanelList',panelController.getPanelList);
+router.post('/devicedetail',panelController.getDeviceDetails);
+
+
 
 module.exports = router;

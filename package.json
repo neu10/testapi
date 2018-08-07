@@ -12,10 +12,15 @@
   "author": "Nutan Garla",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.1",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
     "jade": "^1.11.0",
     "node-sass": "^4.5.0",
     "node-sass-middleware": "^0.11.0",
-    "pug": "^2.0.0-beta11"
+    "oracledb": "2.3.0",
+    "pug": "^2.0.0-beta11",
+    "sworm": "^3.7.1"
   }
 }

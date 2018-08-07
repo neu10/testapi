@@ -1,0 +1,27 @@
+
+<div class="container-fluid">
+<div class="row" >
+    <div class="col-md-4" *ngFor="let list of factorList" >
+        <!-- <div class="device-card" [ngStyle]="{'background-color':list.bgColor}">
+            <i class="material-icons">
+                   {{list.icon}}
+                    </i>
+                    <span>{{list.factor}}</span> </div> -->
+                    <div class="media py-3 mt-3 shadow" [ngStyle]="{'background-color':list.bgColor}">
+                            <i class="{{list.icon}} text-white mx-3" style="font-size: 50px;">
+                                   
+                                     </i>
+                            <div class="media-body">
+                              <h5 class="mt-3 text-white">{{list.factor}}</h5>
+                             
+                            </div>
+                          </div>
+                </div>
+                <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                      <button mat-raised-button (click)="picker.open()">Open</button>
+                      
+</div>
+</div>

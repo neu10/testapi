@@ -27,6 +27,8 @@ router.get('/chartDataForToday',censorController.chartDataForToday);
 router.post('/chartData',censorController.getChartDataBetweenDates);
 
 router.post('/chartDataByTime',censorController.getChartDataBetweenTime);
+
+router.post('/seedData',censorController.insertHistoricCensorData);
 //
 // router.post('/chartData',censorController.getChartData);
 

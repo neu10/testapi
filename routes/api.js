@@ -6,7 +6,7 @@ var router = express.Router();
 var database = require('../services/database');
 var censorController = require('../controllers/censorController');
 var panelController = require('../controllers/panel');
-
+var weatherController = require('../controllers/weatherController');
 // router.get('/', async (req, res) => {
 //     const result = await database.simpleExecute('select user, systimestamp from dual');
 //     const user = result.rows[0].USER;
@@ -29,8 +29,11 @@ router.post('/chartData',censorController.getChartDataBetweenDates);
 router.post('/chartDataByTime',censorController.getChartDataBetweenTime);
 
 router.post('/seedData',censorController.insertHistoricCensorData);
+
+router.get('/weather',weatherController.getWeatherData);
 //
 // router.post('/chartData',censorController.getChartData);
+
 
 
 module.exports = router;

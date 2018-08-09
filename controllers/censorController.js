@@ -47,7 +47,7 @@ exports.insertHistoricCensorData = function(req,res) {
                 getGeneratedData(panel_id,TIMESTAMP,i);
                 i++;
             }
-        },500)
+        },50)
 }
 
 function getGeneratedData(panel_id,ts,id) {
